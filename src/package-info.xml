@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<id>Darknico:ForceCurlSMF</id>
+	<name>ForceCurl</name>
+	<type>modification</type>
+	<version>1.0</version>
+
+	<install for="2.1.*">
+		<require-dir name="Sources/ForceCurl" destination="$sourcedir" />
+        <require-dir name="Themes/default" destination="$themes_dir" />	
+		<hook hook="integrate_pre_include" file="$sourcedir/ForceCurl/hooks.php" />
+		<code>hooks_install.php</code>
+		<modification format="xml" type="file">install.xml</modification>
+	</install>
+
+	<uninstall for="2.1.*">
+		<code>hooks_uninstall.php</code>
+        <modification format="xml" type="file" reverse="true">install.xml</modification>
+		<remove-dir name="$sourcedir/ForceCurl" />
+        <remove-dir name="$languagedir/ForceCurl" />
+	</uninstall>
+
+</package-info>
