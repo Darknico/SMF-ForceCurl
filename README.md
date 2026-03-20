@@ -1,7 +1,7 @@
 # ForceCurl
 
 [![SMF 2.1](https://img.shields.io/badge/SMF-2.1-ed6033.svg?style=flat)](https://github.com/SimpleMachines/SMF2.1)
-![License](https://img.shields.io/github/license/Darknico/SMF-ForceCurl)
+![License](https://img.shields.io/github/license/Darknico/smf-forcecurl)
 
 **Languages:** English, Italian
 
