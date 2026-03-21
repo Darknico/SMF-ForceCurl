@@ -13,7 +13,7 @@ This modification for Simple Machines Forum (SMF) Allows you to force curl to ge
 
 ## Copyright
 
-Darknico at http://www.darknico.com - Copyright (c) 2026 All Rights Reserved.
+Darknico at https://www.darknico.com - Copyright (c) 2026 All Rights Reserved.
 
 Issued under the terms of the GNU General Public License as published by 
 the Free Software Foundation; either version 3 of the License.
