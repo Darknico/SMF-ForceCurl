@@ -4,7 +4,7 @@
 	<id>Darknico:ForceCurlSMF</id>
 	<name>ForceCurl</name>
 	<type>modification</type>
-	<version>1.0</version>
+	<version>1.0.1</version>
 
 	<install for="2.1.*">
 		<require-dir name="Sources/ForceCurl" destination="$sourcedir" />

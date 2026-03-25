@@ -12,7 +12,7 @@
 if (!defined('SMF'))
 	die('Hacking attempt...');  
 
-	defined('FORCECURL_VERSION') || define('FORCECURL_VERSION', '1.0');	
+	defined('FORCECURL_VERSION') || define('FORCECURL_VERSION', '1.0.1');	
 
 
 function fuGeneralSettings(&$actionArray)
