@@ -12,7 +12,7 @@
 if (!defined('SMF'))
 	die('Hacking attempt...');  
 
-	defined('FORCECURL_VERSION') || define('FORCECURL_VERSION', '1.0');	
+	defined('FORCECURL_VERSION') || define('FORCECURL_VERSION', '1.0.1');	
 
 
 function fuGeneralSettings(&$actionArray)
@@ -22,6 +22,11 @@ function fuGeneralSettings(&$actionArray)
 
 	$actionArray['forceCurl'] = 
 		array('forceCurl_enablesetting', $txt['ForceCurl_enableSetting'], 'db', 'check', null, 'forceCurl_enablesetting');
+}	
+
+function fuGeneralSettingsHelp()
+{
+	loadLanguage('ForceCurl/ForceCurl');
 }	
 
 
