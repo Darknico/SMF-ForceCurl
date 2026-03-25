@@ -18,6 +18,7 @@ elseif (!defined('SMF'))
 	
 $FUHooks = array(
 	'integrate_general_settings' => 'fuGeneralSettings',	
+	'integrate_helpadmin' => 'fuGeneralSettingsHelp',
 	'integrate_credits' => 'fuCredits',
 	'integrate_pre_include' => '$sourcedir/ForceCurl/hooks.php'
 );

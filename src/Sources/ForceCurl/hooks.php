@@ -24,6 +24,11 @@ function fuGeneralSettings(&$actionArray)
 		array('forceCurl_enablesetting', $txt['ForceCurl_enableSetting'], 'db', 'check', null, 'forceCurl_enablesetting');
 }	
 
+function fuGeneralSettingsHelp()
+{
+	loadLanguage('ForceCurl/ForceCurl');
+}	
+
 
 function fuCredits()	
 {
