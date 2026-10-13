@@ -8,7 +8,7 @@
  * @copyright Darknico  Copyright (c) 2026
  * @license https://spdx.org/licenses/GPL-3.0-or-later.html GPL-3.0-or-later
  *
- * @version 1.0
+ * @version 1.0.2
  */
 
 if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF'))

@@ -2,7 +2,7 @@
 <!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 	<id>Darknico:ForceCurlSMF</id>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 
 	<file name="$sourcedir/Subs.php">
 		<operation>
@@ -38,6 +38,49 @@
 			$fp = @fsockopen(($match[2] ? 'ssl://' : '') . $match[3], empty($match[5]) ? ($match[2] ? 443 : 80) : $match[5], $err, $err, 5);
 		}
 		if (!empty($fp) && !$forceCurl)]]></add>
+		</operation>        
+	</file>
+		<file name="$sourcedir/Class-CurlFetchWeb.php">
+		<operation>
+			<search position="replace"><![CDATA[	private function curl_request($url, $redirect = false)
+	{
+		// we do have a url I hope]]></search>
+			<add><![CDATA[	private function curl_request($url, $redirect = false)
+	{
+		global $modSettings;
+
+		// we do have a url I hope]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[		// Get what was returned
+		$curl_info = curl_getinfo($cr);
+
+		// Double check that we connected to the expected IP.]]></search>
+			<add><![CDATA[		// Get what was returned
+		$curl_info = curl_getinfo($cr);
+
+		// In some cases, the primary_ip is not set by curl_getinfo, so we need to resolve it ourselves.
+		$forceCurl = (bool)($modSettings['forceCurl_enablesetting'] ?? 0);
+		$forceCurlRealIP = (bool)($modSettings['forceCurl_enablesetting_realip'] ?? 0);
+		if($forceCurl && $forceCurlRealIP) {
+			// 1. We extract only the domain from the URL (e.g., download.simplemachines.org)
+			$host = parse_url($curl_info['url'], PHP_URL_HOST);
+
+			// 2. We use gethostbyname to resolve the domain to an IP address
+			$curl_info['primary_ip'] = gethostbyname($host);
+
+			// 3. If gethostbyname fails (returns the host string instead of an IP)
+			if ($curl_info['primary_ip']=== $host) {
+				// Try dns_get_record
+				$records = @dns_get_record($host, DNS_A);
+				
+				if (!empty($records[0]['ip'])) {
+					$curl_info['primary_ip'] = $records[0]['ip'];
+				}
+			}
+		}
+
+		// Double check that we connected to the expected IP.]]></add>
 		</operation>        
 	</file>
 </modification>
