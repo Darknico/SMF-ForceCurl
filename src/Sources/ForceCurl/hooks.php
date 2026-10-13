@@ -12,7 +12,7 @@
 if (!defined('SMF'))
 	die('Hacking attempt...');  
 
-	defined('FORCECURL_VERSION') || define('FORCECURL_VERSION', '1.0.1');	
+	defined('FORCECURL_VERSION') || define('FORCECURL_VERSION', '1.0.2');	
 
 
 function fuGeneralSettings(&$actionArray)
@@ -22,6 +22,9 @@ function fuGeneralSettings(&$actionArray)
 
 	$actionArray['forceCurl'] = 
 		array('forceCurl_enablesetting', $txt['ForceCurl_enableSetting'], 'db', 'check', null, 'forceCurl_enablesetting');
+
+	$actionArray['forceCurlIP'] = 
+		array('forceCurl_enablesetting_realip', $txt['ForceCurl_enableSetting_realip'], 'db', 'check', null, 'forceCurl_enablesetting_realip');		
 }	
 
 function fuGeneralSettingsHelp()
